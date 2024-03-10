@@ -1,15 +1,16 @@
 body {
-    background-color: #F1F0E8;
+    background-color: #fff; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+/* 배너 부분 */
 h1 {
     text-align: center;
     position: static;
-    margin-top: 50px;
     padding: 50px 0;
+    border: 1px solid black;
 }
 
+/* 사이트 네비게이션 바 */
 .sidenav_bar {
     position: fixed;
     background-color: #444444;
@@ -51,8 +52,35 @@ h1 {
 }
 
 .list_:hover {
-    color: #96B6C5;
+    color: #9BABB8;
     transition: 0.3s;
+}
+
+/* 로그인 영역 */
+
+.logging a {
+    text-decoration: None;
+    color: black;
+    display: inline;
+    padding: 8px;
+    margin-right: 5px;
+    position: relative;
+    font-size: 20px;
+    border: 0px solid black;
+    border-radius: 90px;
+}
+/* ADC4CE EEE0C9 */
+.logging a:hover {
+    background-color: #ADC4CE;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.logging {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    display: block;
 }
 
 @media screen and (max-height: 450px) {
