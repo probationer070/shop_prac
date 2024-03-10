@@ -83,6 +83,70 @@ h1 {
     display: block;
 }
 
+
+/* 상품 목록  */
+
+img {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    box-sizing: inherit;
+}
+
+.grid-container {
+    /* min-width: 980px; */
+    max-width: 980px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    border: 0;
+}
+
+.img-container {
+    padding: 0.01rem 16px;
+    position: relative;
+}
+
+.col-container {
+    width: 25%;
+    display: block;
+    position: relative;
+    float: left;
+
+}
+
+.display-interact {
+    filter: grayscale(70%);
+}
+
+.event_items {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-weight: 200;
+    font-size: 14px;
+    padding: 4px 8px;
+    background-color: #000;
+    color: #fff;
+
+}
+
+.button {
+    border: 0px none;
+    border-color: buttonborder;
+    display: inline-block;
+    padding: 8px 16px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    
+
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+}
+
 @media screen and (max-height: 450px) {
     .sidenav_bar {padding-top: 15px;}
     .sidenav_bar a {font-size: 18px;}

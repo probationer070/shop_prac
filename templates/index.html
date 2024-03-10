@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FANSHOP</title>
-    <link rel="stylesheet" href="../myenv/css/index.css"/>
-    <style>
-    
+    <link rel="stylesheet" href="../static/css/index.css"/>
 
-    </style>
 </head>
 <body>
     <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
@@ -25,7 +22,74 @@
         <a href="#">PROFILE</a>
         <a href="#">ANOTHER</a>
     </div>
-    <div class="container_f_items"></div>
+    <div class="_f_items"></div>
+    
+
+
+
+
+    <!-- Product grid -->
+    <div class="grid-container">
+        <div class="col-container">
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+            </div>
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
+            </div>
+        </div>
+
+        <div class="col-container">
+            <div class="img-container">
+                <div class="display-interact">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <span class="event_items">New</span>
+                    <div class="buying">
+                        <button class="button black">Buy now <i class=""></i></button>
+                    </div>
+                </div>
+                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
+            </div>
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
+            </div>
+        </div>
+
+        <div class="col-container">
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
+            </div>
+            <div class="img-container">
+                <div class="display-interact">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <span class="event_items">Sale</span>
+                    <div class="buying">
+                        <button class="button black">Buy now <i class=""></i></button>
+                    </div>
+                </div>
+                <p>Vintage Skinny Jeans<br><b class="text-red">$14.99</b></p>
+            </div>
+        </div>
+
+        <div class="col-container">
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
+            </div>
+            <div class="img-container">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+            </div>
+        </div>
+    </div>
+
+
+  
+
 
 <script>
 function OpenNav() {
