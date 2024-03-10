@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANSHOP</title>
+    <link rel="stylesheet" href="./css/index.css"/>
+    <style>
+        .logging a {
+            text-decoration: None;
+            color: black;
+            display: inline;
+            padding: 8px;
+            margin-right: 10px;
+            position: relative;
+            font-size: 20px;
+            border: 1px solid black;
+        }
+
+        .logging {
+            position: absolute;
+            right: 5px;
+            top: 20px;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>FAN SHOP</h1>
+    <div class="logging">
+        <a href="">Login</a>
+        <a href="">Sign Up</a>
+    </div>
+    
+    <div id="Mysidnav" class="sidenav_bar">
+        <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">PROFILE</a>
+        <a href="#">ANOTHER</a>
+    </div>
+    <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
+
+<script>
+function OpenNav() {
+    document.getElementById("Mysidnav").style.width = "250px";
+}
+
+function CloseNav() {
+    document.getElementById("Mysidnav").style.width = "0px";
+}
+
+</script>
+</body>
+</html>
