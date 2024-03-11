@@ -78,10 +78,11 @@ h1 {
 
 .logging {
     position: absolute;
+    display: block;
     right: 5px;
     top: 20px;
-    display: block;
 }
+
 
 
 /* 상품 목록  */
@@ -132,19 +133,31 @@ img {
 
 }
 
-.button {
-    border: 0px none;
-    border-color: buttonborder;
-    display: inline-block;
-    padding: 8px 16px;
-    position: absolute;
-    top: 40%;
-    left: 30%;
-    
+/* 나만 이해가 안 되냐? 이미지 마우스오버시 Buy now 뜸 after/before 문제있음 어케 함 */
+/*     참조   https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_clothing_store&stacked=h       */
+.img-container {
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
 
-    margin: 0;
+
+.img-container .button {
+    border: 0;
+    padding: 8px 16px;
     background-color: #000;
     color: #fff;
+    text-align: center;
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s;
+    top: 40%;
+    right: 30%;
+}
+
+.img-container .button:hover {
+    opacity: 1;
 }
 
 @media screen and (max-height: 450px) {
