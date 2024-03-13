@@ -156,11 +156,19 @@ img {
     right: 30%;
 }
 
-.img-container .button:hover {
+.img-container:hover .button {
     opacity: 1;
 }
 
-@media screen and (max-height: 450px) {
+.img-container .button:hover {
+    background-color: #9BABB8;
+    color: #000;
+}
+
+@media screen and (max-height: 480px) {
     .sidenav_bar {padding-top: 15px;}
     .sidenav_bar a {font-size: 18px;}
+    .col-container {
+        width: 50%;
+    }
 }
