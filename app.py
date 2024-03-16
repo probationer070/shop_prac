@@ -20,9 +20,11 @@ def top():
 def main():
     return render_template("main.html")
 
-@app.route('/suc')
+@app.route('/success', methods=['GET', 'POST'])
 def success():
-    return render_template("success.html")
+    error = None
+    id = session['users']
+    return render_template("success.html", error=error, name=id)
 
 # ----------------- 글쓰기 ---------------------
 @app.route('/write_board')
@@ -40,27 +42,38 @@ def write():
 
 @app.route('/login', methods=['GET', 'POST']) # 로그인
 def login():
-    if request.method == 'GET':
-        return render_template('login.html')
-    else:
+    error = None
+    
+    if request.method == 'POST':
         id = request.form['usr_id']
         pw = request.form['usr_pw']
-        # id와 pw가 임의로 정한 값이랑 비교 해서 맞으면 맞다 틀리면 틀리다
-        if id == 'park' and pw == '00000000':
-            session['user'] = id
-            return '''
-                <script> alert("Hello {}!");
-                location.href="/suc"
-                </script>
-            '''.format(id)
-            return redirect(url_for('suc'))
+        
+        data = my_db.select_user(id)
+        # print(data)
+        
+        for row in data:
+            data = row[0]
+            data2 = row[1]
+        # print(id==data)
+        # print(str(pw)==data2)
+
+        if data == id and data2 == pw:          # Im stupid, in sqlite : user_pw length -> 7;
+            session['users'] = id                             # my input : min-length -> 8;
+            return redirect(url_for('success'))
         else:
-            return "Check your ID / PASSWORD"
+            error = "Check your ID / PASSWORD"
+            return '''
+                <script> alert("Login Failed");
+                location.href="/login"
+                </script>
+            '''
+
+    return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('user', None)
-    return redirect(url_for('form'))
+    return redirect(url_for('index'))
 
 @app.route('/form')
 def form():
@@ -68,45 +81,42 @@ def form():
         return render_template('test.html')
     return redirect(url_for('login'))
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST']) # 회원가입
 def signup():
-    return render_template("signup.html")
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def method():
-#     if request.method == 'GET':       # GET 방식 전송
-#         user_id = request.args["usr-id"]
-#         user_pw = request.args.get("usr-pw")
-
-#         return "GET ({}, {})".format(user_id, user_pw)
-#     else:                                     # POST 방식 전송
-#         user_id = request.form["usr-id"]
-#         user_pw = request.form["usr-pw"]
-        
-#         user_data = {
-#             "user_name" : user_id,
-#             "user_pass" : user_pw
-#         }
-#         with open("static/save.json","w", encoding='utf-8') as f:
-#             json.dump(user_data, f, ensure_ascii=False)
-#         return "POST ({}, {})".format(user_id, user_pw)
-
-# @app.route('/getinfo')            # json 파일 읽어고기
-# def getinfo():
-#     with open("static/save.json", "r", encoding='utf-8') as file:
-#         user = file.read().split(',')  
-#     return '번호 : {}, 이름 : {}'.format(user[0], user[1])
-
-@app.route('/signup', methods=['GET', 'POST'])
-def method():
-    if request.method == 'GET':
-        return 'GET'
-    else:
+    error = None
+    if request.method == 'POST':
         user_id = request.form["usr_id"]
         user_pw = request.form["usr_pw"]
-        my_db.connect_db()
-        my_db.insert_data(user_id, user_pw)
-        return 'POST | usr-id: {} usr-pw: {}'.format(user_id, user_pw)
+        
+        try:
+            conn = sqlite3.connect('mydb.db')
+            cursor = conn.cursor()
+            
+            setdata = (user_id, user_pw)
+            cursor.execute("INSERT INTO users (user_id, user_pw) VALUES(?,?);", setdata)
+            
+            data = cursor.fetchall()
+        
+        
+            if not data:
+                conn.commit()
+                return redirect(url_for('index'))
+            else:
+                conn.rollback()
+                return "Register Failed !"
+        
+        except Exception as e:
+            print(e)
+            return '''
+                <script> alert("Register Failed");
+                location.href="/signup"
+                </script>
+                '''
+            
+        finally:
+            cursor.close()
+            conn.close()
+    return render_template('signup.html', error=error)
 
 @app.route('/getinfo')
 def getinfo():

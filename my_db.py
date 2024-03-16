@@ -26,6 +26,8 @@ def insert_data(user_id, user_pw):  # 데이터 기입
         db.commit()
     except Exception as e:
         print('db error:', e)
+        db.rollback()
+    
     finally:
         db.close()
 
@@ -42,21 +44,30 @@ def select_all(table_name): # 전체 데이터 확인
         db.close()
         return ret
     
-def select_num(user_id):
-    ret = ()
+def select_user(user_id):
+    ret = []
     try:
         db = connect_db()
         c = db.cursor()
         setdata = (user_id,)
         c.execute('SELECT * FROM users WHERE user_id = ?', setdata)
-        ret = c.fetchone()
+        ret = c.fetchall()
     except Exception as e:
         print('db error:', e)
     finally:
         db.close()
         return ret
-
-def getinfo_sql():
-    db = connect_db()
-    c = db.cursor()
-    c.execute('SELECT * FROM user_data WHERE user_id = ? and user_pw = ?',)
+    
+# def select_user_pw(user_pw):
+#     ret = []
+#     try:
+#         db = connect_db()
+#         c = db.cursor()
+#         setdata = (user_pw,)
+#         c.execute('SELECT * FROM users WHERE user_pw = ?', setdata)
+#         ret = c.fetchall()
+#     except Exception as e:
+#         print('db error:', e)
+#     finally:
+#         db.close()
+#         return ret
