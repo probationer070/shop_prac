@@ -4,69 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/write.css"/>
 </head>
 <body>
-    <div class="logo"> <h2>Board</h2></div>
+
     <div class="container">
-        <div class="table_contaioner">
-        <table>
-            <thead>
-                <tr>
-                    <th>num</th>
-                    <th>title</th>
-                    <th>Author</th>
-                    <th>view</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="rows">
-                    <td>1</td>
-                    <td>title_1</td>
-                    <td>Author_1</td>
-                    <td>1</td>
-                </tr>
-                <tr class="rows">
-                    <td>2</td>
-                    <td>title_2</td>
-                    <td>Author_2</td>
-                    <td>8</td>
-                </tr>
-                <tr class="rows">
-                    <td>3</td>
-                    <td>title_3</td>
-                    <td>Author_3</td>
-                    <td>13</td>
-                </tr>
-                {% for i in data_list %}
-                <tr>
-                    <td>{{ i[0] }}</td>
-                    <td>{{ i[1] }}</td>
-                    <td>{{ i[2] }}</td>
-                    <td>{{ i[3] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <br>
+        <h1 class="text-center"><a href="#">Writing Board</a></h1>
+        <br>
+        <br>
+        
+        <p>글쓰기 화면!</p>
+        
+        <textarea></textarea>
+    
     </div>
-    <br>
-    <div class="nav_horiz">
-        <ul>
-            <li><a href="#"></a><</li>
-            <li><a href="#"></a>1</li>
-            <li><a href="#"></a>2</li>
-            <li><a href="#"></a>3</li>
-            <li><a href="#"></a>4</li>
-            <li><a href="#"></a>5</li>
-            <li><a href="#"></a>></li>
-        </ul>
-
-    </div>
-    <div class="write">
-        <button type="submit">글쓰기</button>
-    </div>
-
-
-    </div>
-</body>
+    </body>
 </html>

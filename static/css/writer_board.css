@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #000;
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 80px;
+    text-align: center;
+    margin-top: 10%;
+}
+
+table {
+    width: 800px;
+    margin: auto;
+}
+
+.container {
+    text-align: center;
+    width: 800px;
+    margin: auto;
+    position: relative;
+    margin-top: 50px;
+}
+
+.nav_horiz li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+
+.write {
+    display: inline;
+    float: right;
+    right: 100px;
+
+}
+
+.write button{
+    border: 1px;
+    border-radius: 4px;
+    padding: 4px;
+    background-color: #000;
+    color: #fff;
+
+}
+
+.write button:hover {
+    background-color: #bbb;
+    color: #000;
+}

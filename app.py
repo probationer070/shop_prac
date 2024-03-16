@@ -20,14 +20,27 @@ def main():
 def success():
     return render_template("success.html")
 
+# ----------------- 글쓰기 ---------------------
+@app.route('/write_board')
+def write_board():
+    my_db.connect_db()
+    info = my_db.select_all(table_name="writers")
+    return render_template("writer_board.html", data=info)
+
+
+@app.route('/write')
+def write():
+    return render_template('write.html')
+#----------------------------------------------
+
 
 @app.route('/login', methods=['GET', 'POST']) # 로그인
 def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
-        id = request.form['usr-id']
-        pw = request.form['usr-pw']
+        id = request.form['usr_id']
+        pw = request.form['usr_pw']
         # id와 pw가 임의로 정한 값이랑 비교 해서 맞으면 맞다 틀리면 틀리다
         if id == 'park' and pw == '00000000':
             session['user'] = id
@@ -94,7 +107,7 @@ def method():
 @app.route('/getinfo')
 def getinfo():
     my_db.connect_db()
-    info = my_db.select_all()
+    info = my_db.select_all(table_name='users')
     return render_template("info.html", data=info)
 
 
