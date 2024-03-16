@@ -57,17 +57,3 @@ def select_user(user_id):
     finally:
         db.close()
         return ret
-    
-# def select_user_pw(user_pw):
-#     ret = []
-#     try:
-#         db = connect_db()
-#         c = db.cursor()
-#         setdata = (user_pw,)
-#         c.execute('SELECT * FROM users WHERE user_pw = ?', setdata)
-#         ret = c.fetchall()
-#     except Exception as e:
-#         print('db error:', e)
-#     finally:
-#         db.close()
-#         return ret

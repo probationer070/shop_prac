@@ -14,9 +14,11 @@
         <br>
         
         <p>글쓰기 화면!</p>
-        
-        <textarea></textarea>
-    
+        <form method="POST">
+            <lable>TITLE <input name="title"></input></label>
+            <textarea name="content" style="width:800px; height:600px;"></textarea>
+            <label>주석 <input type="text" name="substring"></label>&nbsp&nbsp&nbsp<input type="submit" value="작성하기" onclick="alert('작성 완료!')">
+        </form>
     </div>
     </body>
 </html>

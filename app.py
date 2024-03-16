@@ -29,14 +29,64 @@ def success():
 # ----------------- 글쓰기 ---------------------
 @app.route('/write_board')
 def write_board():
-    my_db.connect_db()
-    info = my_db.select_all(table_name="writers")
+    info = my_db.select_all(table_name="content")
     return render_template("writer_board.html", data=info)
 
 
-@app.route('/write')
+@app.route('/write', methods=['GET', 'POST'])
 def write():
-    return render_template('write.html')
+    error = None
+    id = session['users'] # 세션에 저장했던 로그인 유저 아이디를 변수에 저장함
+ 
+    if request.method == 'POST': # 게시판에 글 등록하기
+        print("POST TEST")
+        content = request.form['content']
+        conn = sqlite3.connect('mydb.db')  # DB와 연결
+        cursor = conn.cursor()  # connection으로부터 cursor 생성
+        
+        setdata = (id, content)    # 전달값
+        sql = "INSERT INTO content (writer, content) VALUES (?,?)" # 실행할 SQL문
+        
+        cursor.execute(sql, setdata)  # 메소드로 전달해 명령문을 실행
+        new_data = cursor.fetchall()  # 실행한 결과 데이터를 꺼냄
+ 
+        if not new_data:
+            conn.commit()  # 변경사항 저장
+            return redirect(url_for("write_board"))
+ 
+        else:
+            conn.rollback()  # 데이터베이스에 대한 모든 변경사항을 되돌림
+            return "Register Failed"
+ 
+        cursor.close()
+        conn.close()
+ 
+    elif request.method == 'GET': # 처음 페이지가 로드되는 GET 통신
+        conn = sqlite3.connect('mydb.db')  # DB와 연결
+        cursor = conn.cursor()  # connection으로부터 cursor 생성 (데이터베이스의 Fetch 관리)
+        sql = "SELECT * FROM content ORDER BY date DESC Limit 1" # 실행할 SQL문
+        cursor.execute(sql)  # 메소드로 전달해 명령문을 실행
+        data = cursor.fetchall()  # 실행한 결과 데이터를 꺼냄
+ 
+        data_list = []
+ 
+        for obj in data: # 튜플 안의 데이터를 하나씩 조회해서
+            data_dic = { # 딕셔너리 형태로
+                # 요소들을 하나씩 넣음
+                'title': obj[0],
+                'writer': obj[1],
+                'views': obj[2],
+                'content': obj[3],
+                'date':obj[4]
+            }
+            data_list.append(data_dic) # 완성된 딕셔너리를 list에 넣음
+ 
+        cursor.close()
+        conn.close()
+ 
+        return render_template('write.html', error=error, name=id, data_list=data_list) # html을 렌더하며 DB에서 받아온 값들을 넘김
+ 
+    return render_template('write.html', error=error, name=id)
 #----------------------------------------------
 
 
