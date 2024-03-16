@@ -12,6 +12,10 @@ app.secret_key = '1813508120'
 def index():
     return render_template("index.html")
 
+@app.route('/top')
+def top():
+    return render_template("top_menu.html")
+
 @app.route('/main')
 def main():
     return render_template("main.html")

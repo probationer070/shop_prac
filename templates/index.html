@@ -8,26 +8,9 @@
 
 </head>
 <body>
-    <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
-    <h1>FAN SHOP</h1>
-    <div class="logging">
-            <a href="./login">Login</a>
-            <a href="./signup" type="submit">Sign Up</a>
-    </div>
-    
-    <div id="Mysidnav" class="sidenav_bar">
-        <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
-        <a href="#">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">PROFILE</a>
-        <a href="#">ANOTHER</a>
-    </div>
-    <div class="_f_items"></div>
-    <br>
-
-
-    
-
+    {% extends "top_menu.html" %}
+    {% block content %}
+    {{ super() }}
     <!-- Product grid -->
     <div class="grid-container">
         <div class="col-container">
@@ -85,7 +68,9 @@
                 <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
             </div>
         </div>
-    </div>
+    </div>    
+
+    {% endblock %}
 
 
   
@@ -101,5 +86,6 @@ function CloseNav() {
 }
 
 </script>
+
 </body>
 </html>
