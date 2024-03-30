@@ -24,17 +24,19 @@
                 <li class="subtext"><label>[ 주석 ] : </label></li>
                 <li class="col1"><input type="text" name="annotation" value="{{ i[5] }}"></li>
             </ul>
-        
             <div class="button">
                 <input type="submit" value="update" onclick="alert('수정 완료!')">
-            </div> 
-            <div class="button">
-                <form action="delete" method="POST">
-                    <input type="submit" value="delete" onclick="alert('삭제 완료!')">
-                </form>
-            </div>      <!-- 삭제기능 왜 안 됨? -->
+            </div>
             {% endfor %}
         </form>
+        {% for i in data %}
+        <form method="POST" action="../delete/{{ i[0] }}">
+            <div class="button">
+                <input type="submit" value="delete" onclick="alert('삭제 완료!')">
+            </div>
+        </form>
+        {% endfor %}
+           <!-- 삭제기능 왜 안 됨? ? update/delete로 뜨는데? -->
     </div>
 </body>
 </html>

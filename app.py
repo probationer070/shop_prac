@@ -153,7 +153,7 @@ def delete(post_id):
     conn.commit()  # 변경사항 저장
     conn.close()
     
-    return redirect(url_for("delete"))
+    return redirect(url_for("write_board"))
 
 # ---------------------로그인-----------------------
 
