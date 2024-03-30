@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/write.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center"><a href="/write_board">Writing Board</a></h1>
+        
+        <form method="POST">
+            {% for i in data %}
+            <ul>
+                <li class="title"><lable>[ TITLE ] : </label></li>
+                <li class="col1"><input name="title" value="{{ i[1] }}"></input></li>
+            </ul>
+            <ul class="contents">
+                <li class="contents"><div>[ CONTENTS ] : </div></li>
+                <li class="col1"><textarea name="content" style="width:600px; height:250px;">{{ i[3] }}</textarea></li>
+            </ul>
+            <ul>
+                <li class="subtext"><label>[ 주석 ] : </label></li>
+                <li class="col1"><input type="text" name="annotation" value="{{ i[5] }}"></li>
+            </ul>
+        
+            <div class="button">
+                <input type="submit" value="update" onclick="alert('수정 완료!')">
+            </div> 
+            <div class="button">
+                <form action="delete" method="POST">
+                    <input type="submit" value="delete" onclick="alert('삭제 완료!')">
+                </form>
+            </div>      <!-- 삭제기능 왜 안 됨? -->
+            {% endfor %}
+        </form>
+    </div>
+</body>
+</html>

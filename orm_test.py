@@ -40,5 +40,5 @@ result = session.query(users).all()
 for row in result:
   print(users.user_id, users.user_pw)
   
-some_table = Table("my_db", metadata, autoload_with=engine)
+some_table = Table("mydb", metadata, autoload_with=engine)
 print(some_table)

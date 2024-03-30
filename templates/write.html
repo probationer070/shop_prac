@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/css/write.css"/>
 </head>
 <body>
 
     <div class="container">
-        <br>
         <h1 class="text-center"><a href="/write_board">Writing Board</a></h1>
-        <br>
-        <br>
         
-        <p>글쓰기 화면!</p>
         <form method="POST">
-            <lable>TITLE <input name="title"></input></label>
-            <textarea name="content" style="width:800px; height:600px;"></textarea>
-            <label>주석 <input type="text" name="substring"></label>&nbsp&nbsp&nbsp<input type="submit" value="작성하기" onclick="alert('작성 완료!')">
+            <ul>
+                <li class="title"><lable>[ TITLE ] : </label></li>
+                <li class="col1"><input name="title"></input></li>
+            </ul>
+            <ul class="contents">
+                <li class="contents"><div>[ CONTENTS ] : </div></li>
+                <li class="col1"><textarea name="content" style="width:600px; height:250px;"></textarea></li>
+            </ul>
+            <ul>
+                <li class="subtext"><label>[ 주석 ] : </label></li>
+                <li class="col1"><input type="text" name="annotation"></li>
+            </ul>
+            <div class="button"><input type="submit" value="작성하기" onclick="alert('작성 완료!')"></div>
         </form>
     </div>
     </body>

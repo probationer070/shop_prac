@@ -17,6 +17,7 @@
                     <th>Author</th>
                     <th>view</th>
                     <th>upload_time</th>
+                    <th>annotation</th>
                 </tr>
 
                 {% for i in data %}
@@ -24,8 +25,9 @@
                     <td>{{ i[0] }}</td>
                     <td>{{ i[1] }}</td>
                     <td>{{ i[2] }}</td>
-                    <td>{{ i[3] }}</td>
+                    <td><a href="/update/{{ i[0] }}">{{ i[3][:38] }}</a></td>
                     <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -41,8 +43,9 @@
                 <li><a href="#"></a>5</li>
                 <li><a href="#"></a>></li>
             </ul>
-
         </div>
+
+
         <div class="write">
             <form action="/write">
                 <button type="submit">글쓰기</button>

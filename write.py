@@ -38,7 +38,7 @@ def select_all(table_name): # 전체 데이터 확인
 # con.close()
 
 
-# c.execute("SELECT * from writers")
+# c.execute("SELECT * from content")
 # data_list = c.fetchall()
 
-# print(data_list[0])
+# print(data_list)
