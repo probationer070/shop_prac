@@ -36,6 +36,9 @@ I'll trying upgrade this simple pages.
 reference >>>
 
 https://wikidocs.net/167090
+
 https://velog.io/@yohan-record/Python-Online-Store-%EB%A7%8C%EB%93%A4%EA%B8%B0-5%ED%8E%B8-%ED%8C%90%EB%A7%A4%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-API
+
 https://m.blog.naver.com/funlucky1002/221609226235
+
 ...
