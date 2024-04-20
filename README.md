@@ -14,7 +14,7 @@ And than, Commit or push it!
   use this packages 
      
   Package           Version           
-  ----------------- -------       
+  "-----------------" "-------"       
   blinker           1.7.0       
   click             8.1.7         
   colorama          0.4.6       
