@@ -23,6 +23,7 @@
                     <label>PASSWORD</label>
                 </div>
                 <input type="password" name="usr_pw" placeholder="10101010" minlength="8">
+                
                 <p><br></p>
                 <form action="">
                     <button class="link" type="submit">signup</button>
@@ -32,7 +33,15 @@
                 <button class="link">continue with Google</button>
                 <button class="link">continue with Naver</button>
                 <button class="link">continue with Kakao</button>
-    
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
             </div>
         </div>
     </form>

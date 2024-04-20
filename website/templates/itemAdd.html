@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/item.css">
+  </head>
+  <body>
+    {% extends "top_menu.html" %}
+    {% block content %}
+    {{ super() }}
+    <form method="post">
+      <h3>테스트</h3>
+      <p><img src=""></p>
+      <p><b>이름</b> : <input type="text" name="item_name"></p>
+      <p>아이템 코드 : <input type="text" name="item_code"></p>
+      <p>작성자 : <input type="text" name="writer"></p>
+      <p>작성일 : <input type="text" name="pubtime"></p>
+      <p>분류 : <input type="text" name="option"></p>
+      <p>재고수 : <input type="text" name="stock"></p>
+      <p>가격 : <input type="text" name="price"></p>
+      <p><input type="submit" value="등록"></p>
+    </form>
+    {% endblock %}
+    
+  </body>
+</html>

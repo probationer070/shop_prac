@@ -1,0 +1,174 @@
+body {
+    background-color: #fff; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* 배너 부분 */
+h1 {
+    text-align: center;
+    position: static;
+    padding: 50px 0;
+    border: 1px solid black;
+}
+
+/* 사이트 네비게이션 바 */
+.sidenav_bar {
+    position: fixed;
+    background-color: #444444;
+    display: block;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.sidenav_bar a {
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    padding: 8px 8px 8px 32px;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.sidenav_bar a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav_bar .close_btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #818181;
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+.list_ {
+    color: #000;
+}
+
+.list_:hover {
+    color: #9BABB8;
+    transition: 0.3s;
+}
+
+/* 로그인 영역 */
+
+.logging a {
+    text-decoration: None;
+    color: black;
+    display: inline;
+    padding: 8px;
+    margin-right: 5px;
+    position: relative;
+    font-size: 20px;
+    border: 0px solid black;
+    border-radius: 90px;
+}
+/* ADC4CE EEE0C9 */
+.logging a:hover {
+    background-color: #ADC4CE;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.logging {
+    position: absolute;
+    display: block;
+    right: 5px;
+    top: 20px;
+}
+
+
+
+/* 상품 목록  */
+
+img {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    box-sizing: inherit;
+}
+
+.grid-container {
+    /* min-width: 980px; */
+    max-width: 980px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    border: 0;
+}
+
+.img-container {
+    padding: 0.01rem 16px;
+    position: relative;
+}
+
+.col-container {
+    width: 25%;
+    display: block;
+    position: relative;
+    float: left;
+
+}
+
+.display-interact {
+    filter: grayscale(70%);
+}
+
+.event_items {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-weight: 200;
+    font-size: 14px;
+    padding: 4px 8px;
+    background-color: #000;
+    color: #fff;
+
+}
+
+/* 나만 이해가 안 되냐? 이미지 마우스오버시 Buy now 뜸 after/before 문제있음 어케 함 */
+/*     참조   https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_clothing_store&stacked=h       */
+.img-container {
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.img-container .button {
+    border: 0;
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s;
+    top: 40%;
+    right: 30%;
+}
+
+.img-container:hover .button {
+    opacity: 1;
+}
+
+.img-container .button:hover {
+    background-color: #9BABB8;
+    color: #000;
+}
+
+@media screen and (max-height: 480px) {
+    .sidenav_bar {padding-top: 15px;}
+    .sidenav_bar a {font-size: 18px;}
+    .col-container {
+        width: 50%;
+    }
+}

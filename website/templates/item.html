@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANSHOP</title>
+    <link rel="stylesheet" href="../static/css/item.css">
+    <script src="../static/js/list.js">
+    </script>
+  </head>
+  <body>
+    {% extends "top_menu.html" %}
+    {% block content %}
+    {{ super() }}
+    
+        {% for item in data %}
+        <h3>테스트</h3>
+        <p><img src=""></p>
+        <p><b>이름</b> : {{ item[0] }} </p>
+        <p>아이템 코드 : {{ item[1] }} </p>
+        <p>작성자 : {{ item[2] }}</p>
+        <p>작성일 : {{ item[3] }}</p>
+        <p>등록일 : {{ item[4] }}</p>
+        <p>분류 : {{ item[5] }}</p>
+        <p>재고수 : {{ item[6] }}</p>
+        <p>가격 : {{ item[7] }}</p>
+        {% endfor %}
+      <p><a href={{ url_for("views.home") }}>목록</a></p>
+
+    {% endblock %}
+    
+  </body>
+  <script src="../static/js/list.js">
+</script>
+</html>
