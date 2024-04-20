@@ -2,11 +2,11 @@
 
 you try it first before use this codes > admin
 
-  NICE@DESKTOP-SFP87NC MINGW64 /
-  $ git config --global user.email "youremail@gmail.com"
+    NICE@DESKTOP-SFP87NC MINGW64 /
+    $ git config --global user.email "youremail@gmail.com"
 
-  NICE@DESKTOP-SFP87NC MINGW64 /
-  $ git config --global user.name "yourname"
+    NICE@DESKTOP-SFP87NC MINGW64 /
+    $ git config --global user.name "yourname"
 
 than if you use vscode >> go to Source Control
 
