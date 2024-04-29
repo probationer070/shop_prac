@@ -8,82 +8,84 @@
 
 </head>
 <body>
-    <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
-    <h1>FAN SHOP MAIN PAGE</h1>
-    <div class="logging">
-            <a href="./logout">Logout</a>
-            <a href="./signup" type="submit">Sign Up</a>
-    </div>
+    <div class="container">
+        <div class="top_header">
+          <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
+          <div class="banner"><h1>FAN SHOP</h1></div>
+          <div class="logging">
+            <a href={{url_for('auth.logout')}}>Logout</a>
+          </div>
+          
+          <div id="Mysidnav" class="sidenav_bar">
+              <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
+              <a href={{url_for('views.home')}}>HOME</a>
+              <a href="#">ABOUT</a>
+              <a href="#">PROFILE</a>
+              <a href="#">ANOTHER</a>
+              <a href="/write_board">WRITE</a>
+          </div>
+        </div>
+
+
+
     
-    <div id="Mysidnav" class="sidenav_bar">
-        <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
-        <a href="#">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">PROFILE</a>
-        <a href="#">ANOTHER</a>
-        <a href="/write_board">WRITE</a>
-    </div>
-    <div class="_f_items"></div>
-    <br>
 
-
-    
-
-    <!-- Product grid -->
-    <div class="grid-container">
-        <div class="col-container">
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-            </div>
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-            </div>
-        </div>
-
-        <div class="col-container">
-            <div class="img-container">
-                <div class="display-interact">
+        <!-- Product grid -->
+        <div class="grid-container">
+            <div class="col-container">
+                <div class="img-container">
                     <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <span class="event_items">New</span>
-                    <div class="buying">
-                        <button class="button black" onclick="location.href='item/J251L5C22'">Buy now <i class=""></i></button>
-                    </div>
+                    <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
                 </div>
-                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-            </div>
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-            </div>
-        </div>
-
-        <div class="col-container">
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-            </div>
-            <div class="img-container">
-                <div class="display-interact">
+                <div class="img-container">
                     <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <span class="event_items">Sale</span>
-                    <div class="buying">
-                        <button class="button black">Buy now <i class=""></i></button>
-                    </div>
+                    <p>Mega Ripped Jeans<br><b>$19.99</b></p>
                 </div>
-                <p>Vintage Skinny Jeans<br><b class="text-red">$14.99</b></p>
             </div>
-        </div>
 
-        <div class="col-container">
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
+            <div class="col-container">
+                <div class="img-container">
+                    <div class="display-interact">
+                        <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                        <span class="event_items">New</span>
+                        <div class="buying">
+                            <button class="button black" onclick="location.href='item/J251L5C22'">Buy now <i class=""></i></button>
+                        </div>
+                    </div>
+                    <p>Mega Ripped Jeans<br><b>$19.99</b></p>
+                </div>
+                <div class="img-container">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <p>Washed Skinny Jeans<br><b>$20.50</b></p>
+                </div>
             </div>
-            <div class="img-container">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+
+            <div class="col-container">
+                <div class="img-container">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <p>Washed Skinny Jeans<br><b>$20.50</b></p>
+                </div>
+                <div class="img-container">
+                    <div class="display-interact">
+                        <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                        <span class="event_items">Sale</span>
+                        <div class="buying">
+                            <button class="button black">Buy now <i class=""></i></button>
+                        </div>
+                    </div>
+                    <p>Vintage Skinny Jeans<br><b class="text-red">$14.99</b></p>
+                </div>
+            </div>
+
+            <div class="col-container">
+                <div class="img-container">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
+                </div>
+                <div class="img-container">
+                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                    <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+                </div>
             </div>
         </div>
     </div>

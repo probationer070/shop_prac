@@ -1,6 +1,7 @@
 body {
     background-color: #fff; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 /* 배너 부분 */
 h1 {
@@ -49,6 +50,7 @@ h1 {
 
 .list_ {
     color: #000;
+    position: absolute;
 }
 
 .list_:hover {
@@ -80,7 +82,7 @@ h1 {
     position: absolute;
     display: block;
     right: 5px;
-    top: 20px;
+    top: 10px;
 }
 
 
@@ -171,4 +173,33 @@ img {
     .col-container {
         width: 50%;
     }
+}
+
+._f_items {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.container {
+    height: 100vh;
+    width: 70vw;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.top_header {
+    display: contents;
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    top: 40px
+}
+
+.grid-container {
+    margin-top: 40px;
 }

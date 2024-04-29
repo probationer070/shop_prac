@@ -8,6 +8,10 @@ import my_db
 
 auth = Blueprint('auth', __name__)
 
+@auth.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect(url_for('views.index'))
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -37,11 +41,6 @@ def login():
             flash(error, category="error")
 
     return render_template('login.html')
-
-@auth.route('/logout')
-def logout():
-    session.pop('user', None)
-    return redirect(url_for('views.index'))
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
