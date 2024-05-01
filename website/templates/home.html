@@ -1,100 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FANSHOP</title>
-    <link rel="stylesheet" href="../static/css/index.css"/>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FANSHOP</title>
+  <link rel="stylesheet" href="../static/css/index.css"/>
+  <script src="../static/js/list.js" defer></script>
+  <script src="../static/js/shopitem.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="top_header">
-          <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
-          <div class="banner"><h1>FAN SHOP</h1></div>
-          <div class="logging">
-            <a href={{url_for('auth.logout')}}>Logout</a>
-          </div>
-          
-          <div id="Mysidnav" class="sidenav_bar">
-              <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
-              <a href={{url_for('views.home')}}>HOME</a>
-              <a href="#">ABOUT</a>
-              <a href="#">PROFILE</a>
-              <a href="#">ANOTHER</a>
-              <a href="/write_board">WRITE</a>
-          </div>
+<div class="container">
+  <!-- Header -->
+  {% include "top_menu_user.html" %}
+
+  <!-- Product grid -->
+  <div class="grid-container">
+      
+        <div class="img-container">
+            <div class="new_item">
+                <span class="event_items">New</span>
+            </div>
+            <div class="display-interact">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <button class="button black">Buy now</button>
+            </div>
+            <div class="subject"><p>Mega Ripped Jeans</p></div> 
+            <div class="value"><p>$19.99</p></div> 
         </div>
 
-
-
+        <div class="img-container">
+            <div class="new_item">
+                <span class="event_items">New</span>
+            </div>
+            <div class="display-interact">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <button class="button black">Buy now</button>
+            </div>
+            <div class="subject"><p>Mega Ripped Jeans</p></div> 
+            <div class="value"><p>$19.99</p></div> 
+        </div>
     
-
-        <!-- Product grid -->
-        <div class="grid-container">
-            <div class="col-container">
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-                </div>
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-                </div>
+        <div class="img-container">
+            <div class="new_item">
+                <span class="event_items">New</span>
             </div>
-
-            <div class="col-container">
-                <div class="img-container">
-                    <div class="display-interact">
-                        <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                        <span class="event_items">New</span>
-                        <div class="buying">
-                            <button class="button black" onclick="location.href='item/J251L5C22'">Buy now <i class=""></i></button>
-                        </div>
-                    </div>
-                    <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-                </div>
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-                </div>
+            <div class="display-interact">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <button class="button black">Buy now</button>
             </div>
-
-            <div class="col-container">
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-                </div>
-                <div class="img-container">
-                    <div class="display-interact">
-                        <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                        <span class="event_items">Sale</span>
-                        <div class="buying">
-                            <button class="button black">Buy now <i class=""></i></button>
-                        </div>
-                    </div>
-                    <p>Vintage Skinny Jeans<br><b class="text-red">$14.99</b></p>
-                </div>
-            </div>
-
-            <div class="col-container">
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
-                </div>
-                <div class="img-container">
-                    <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                    <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-                </div>
-            </div>
+            <div class="subject"><p>Mega Ripped Jeans</p></div> 
+            <div class="value"><p>$19.99</p></div> 
         </div>
-    </div>
 
+        <div class="img-container">
+            <div class="new_item">
+                <span class="event_items">New</span>
+            </div>
+            <div class="display-interact">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <button class="button black">Buy now</button>
+            </div>
+            <div class="subject"><p>Mega Ripped Jeans</p></div> 
+            <div class="value"><p>$19.99</p></div> 
+        </div>
 
-  
+        {% for item_id in data %}
+          <div class="img-container">
+            <div class="new_item">
+                <span class="event_items">New</span>
+            </div>
+            <div class="display-interact">
+                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
+                <button class="button item-url" id="item-url" value="/item/{{ item_id[1] }}">Buy now</button>
+            </div>
+            <div class="subject"><p>{{ item_id[0] }}</p></div> 
+            <div class="value"><p>${{ item_id[7] }}</p></div> 
+          </div>
+        {% endfor %}
 
+          
+      
+  </div>    
+</div>
+<!-- Footer -->
+{% include "footer.html" %}
 
-<script src="../static/js/list.js">
-</script>
 </body>
 </html>

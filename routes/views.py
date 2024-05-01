@@ -14,7 +14,8 @@ def index():
 
 @views.route('/home')
 def home():
-    return render_template("home.html")
+    info = my_db.select_all(table_name="items")
+    return render_template("home.html", data=info)
 
 # ----------------- 아이템 추가 ---------------------
 

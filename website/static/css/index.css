@@ -1,14 +1,45 @@
-body {
-    background-color: #fff; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    background-color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    height: 2000px;
+    width: 80vw;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 /* 배너 부분 */
-h1 {
+
+.top_header {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.top_item {
+    height: 40px;
+    margin-bottom: 5px;
+    align-content: center;
+}
+
+.banner {
+    position: relative;
     text-align: center;
-    position: static;
-    padding: 50px 0;
+    /* position: static; */
     border: 1px solid black;
+    width: 100%;
+    padding: 40px 0;
 }
 
 /* 사이트 네비게이션 바 */
@@ -50,42 +81,44 @@ h1 {
 
 .list_ {
     color: #000;
-    position: absolute;
+    position: relative;
+    margin-left: 10px;
 }
 
 .list_:hover {
-    color: #9BABB8;
+    color: #ffffff;
+    background-color: #000;
     transition: 0.3s;
 }
 
 /* 로그인 영역 */
+.logging {
+    position: relative;
+    flex-direction: row;
+    float: right;
+    margin-right: 10px;
+}
 
 .logging a {
     text-decoration: None;
     color: black;
-    display: inline;
-    padding: 8px;
-    margin-right: 5px;
-    position: relative;
+    padding: 4px 8px;
     font-size: 20px;
-    border: 0px solid black;
-    border-radius: 90px;
 }
+
 /* ADC4CE EEE0C9 */
 .logging a:hover {
-    background-color: #ADC4CE;
+    background-color: #000000;
     color: #fff;
+    padding: 4px 8px;
     transition: 0.3s;
 }
 
-.logging {
-    position: absolute;
-    display: block;
-    right: 5px;
-    top: 10px;
+
+
+.container>* {
+    border: 1px solid #000;
 }
-
-
 
 /* 상품 목록  */
 
@@ -97,81 +130,95 @@ img {
 }
 
 .grid-container {
-    /* min-width: 980px; */
-    max-width: 980px;
-    display: block;
-    margin: 0 auto;
+    width: 100%;
     text-align: center;
     position: relative;
-    border: 0;
+    top: 60px;
+    margin: 0 auto;
 }
+
+/* 개별 상품 */
 
 .img-container {
-    padding: 0.01rem 16px;
-    position: relative;
+    width: 25%;
+    margin: 10px auto;
+
+    display: flex;
+    flex-direction: column;
+    float: left;
 }
 
-.col-container {
-    width: 25%;
-    display: block;
-    position: relative;
-    float: left;
+.img-container>.subject {
+    margin-top: 10px;
+}
 
+.img-container>.value {
+    margin-top: 4px;
+    font-weight: bold;
 }
 
 .display-interact {
-    filter: grayscale(70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.event_items {
+/* 최근 입고된 상품 표시 */
+.new_item {
+    border: 0;
     position: absolute;
-    top: 0%;
-    left: 0%;
-    font-weight: 200;
+    align-items: flex-start;
+    background-color: #000;
     font-size: 14px;
+    padding: 4px 8px;
+}
+
+span.event_items {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 마우스 오버시 버튼 */
+.img-container .button {
+    border: 0;
     padding: 4px 8px;
     background-color: #000;
     color: #fff;
-
-}
-
-/* 나만 이해가 안 되냐? 이미지 마우스오버시 Buy now 뜸 after/before 문제있음 어케 함 */
-/*     참조   https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_clothing_store&stacked=h       */
-.img-container {
-    margin: 0 auto;
-    align-items: center;
-    position: relative;
-    box-sizing: border-box;
-}
-
-
-.img-container .button {
-    border: 0;
-    padding: 8px 16px;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    position: absolute;
     opacity: 0;
     transition: 0.3s;
-    top: 40%;
-    right: 30%;
+    height: 30px;
+    font-size: 14px;
+    position: absolute;
 }
 
-.img-container:hover .button {
+.display-interact:hover .button {
     opacity: 1;
+    transition: 0.5s;
+}
+
+.display-interact:hover {
+    filter: grayscale(70%);
+    transition: 0.7s;
 }
 
 .img-container .button:hover {
-    background-color: #9BABB8;
+    background-color: #b6b6b6;
     color: #000;
 }
 
-@media screen and (max-height: 480px) {
-    .sidenav_bar {padding-top: 15px;}
-    .sidenav_bar a {font-size: 18px;}
-    .col-container {
-        width: 50%;
+/* 기기별 화면 설정 */
+@media screen and (max-width: 900px) {
+    .sidenav_bar {
+        padding-top: 15px;
+    }
+
+    .sidenav_bar a {
+        font-size: 18px;
+    }
+
+    .img-container {
+        width: 48%;
+        font-size: 20px;
     }
 }
 
@@ -181,25 +228,23 @@ img {
     margin-top: 20px;
 }
 
-.container {
-    height: 100vh;
-    width: 70vw;
-    margin: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
 
-.top_header {
-    display: contents;
+/* 바닥 Nav */
+footer {
+    font-size: 12px;
     width: 100%;
+    height: 80px;
+    background-color: #000000;
+    text-align: center;
+    align-content: center;
+    bottom: 0px;
 }
 
-.banner {
-    position: relative;
-    top: 40px
+.footer_items {
+    color: #fff;
+    display: inline-flex;
 }
 
-.grid-container {
-    margin-top: 40px;
+.footer_items p {
+    margin-right: 20px;
 }

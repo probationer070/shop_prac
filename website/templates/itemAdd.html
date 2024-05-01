@@ -1,48 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/item.css">
-  </head>
-  <body>
-    
-  <div class="container">
-    <div class="top_header">
-      <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
-      <div class="banner"><h1>FAN SHOP</h1></div>
-      <div class="logging">
-        <a href={{url_for('auth.logout')}}>Logout</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FANSHOP</title>
+  <link rel="stylesheet" href="../static/css/item.css"/>
+  <script src="../static/js/list.js" defer>
+  </script>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  {% include "top_menu_user.html" %}
+
+  <div class="item_total">
+      <!-- Image -->
+      <div class="itemImage">
+        <img src="" alt="Image">
       </div>
       
-      <div id="Mysidnav" class="sidenav_bar">
-          <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
-          <a href={{url_for('views.home')}}>HOME</a>
-          <a href="#">ABOUT</a>
-          <a href="#">PROFILE</a>
-          <a href="#">ANOTHER</a>
-          <a href="/write_board">WRITE</a>
-      </div>
+      <!-- ItemAdd grid -->
+      <div class="itemInfos">
+        
+        <form method="post">
+          <div class="item item_name">
+            <p>이름 : </p>
+            <input type="text" name="item_name">
+          </div>
+          
+          <div class="item item_code">
+            <p>코드 : </p>
+            <input type="text" name="item_code">
+          </div>
+          <div class="item writer">
+            <p>작성자 : </p>
+            <input type="text" name="writer">
+          </div>
+          
+          <div class="item pubtime">
+            <p>작성일 : </p>
+            <input type="text" name="pubtime">
+          </div>
+          <div class="item option">
+            <p>분류 : </p>
+            <input type="text" name="option">
+          </div>
+          
+          <div class="item stock">
+            <p>재고수 : </p>
+            <input type="text" name="stock">
+          </div>
+          <div class="item price">
+            <p>가격 : </p>
+            <input type="text" name="price">
+          </div>
+          
+          
+        </form>
+        
+        <div class="btn_nav">
+          <input type="submit" value="등록">
+          <input type="reset" value="리셋">
+        </div>
+
     </div>
-
-
-    <form method="post">
-      <h3>테스트</h3>
-      <p><img src=""></p>
-      <p><b>이름</b> : <input type="text" name="item_name"></p>
-      <p>아이템 코드 : <input type="text" name="item_code"></p>
-      <p>작성자 : <input type="text" name="writer"></p>
-      <p>작성일 : <input type="text" name="pubtime"></p>
-      <p>분류 : <input type="text" name="option"></p>
-      <p>재고수 : <input type="text" name="stock"></p>
-      <p>가격 : <input type="text" name="price"></p>
-      <p><input type="submit" value="등록"></p>
-    </form>
-  </div>
-
     
-  </body>
+  </div>
+</div>
+<!-- Footer -->
+{% include "footer.html" %}
+
+</body>
 </html>

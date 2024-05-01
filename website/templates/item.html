@@ -10,44 +10,69 @@
   </head>
   <body>
     <div class="container">
-      <div class="top_header">
-        <span class="list_" onclick="OpenNav()" style="font-size:30px;cursor:pointer">&#9776; LIST</span>
-        <div class="banner"><h1>FAN SHOP</h1></div>
-        <div class="logging">
-          <a href={{url_for('auth.logout')}}>Logout</a>
-        </div>
-        
-        <div id="Mysidnav" class="sidenav_bar">
-            <a href="javascript:CloseNav()" class="close_btn" onclick="CloseNav();">&times</a>
-            <a href={{url_for('views.home')}}>HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">PROFILE</a>
-            <a href="#">ANOTHER</a>
-            <a href="/write_board">WRITE</a>
-        </div>
-      </div>
+      <!-- Header -->
+      {% include "top_menu_user.html" %}
 
-      <div class="_f_items">
-        {% for item in data %}
-        <h3>테스트</h3>
-        <p><img src=""></p>
-        <p><b>이름</b> : {{ item[0] }} </p>
-        <p>아이템 코드 : {{ item[1] }} </p>
-        <p>작성자 : {{ item[2] }}</p>
-        <p>작성일 : {{ item[3] }}</p>
-        <p>등록일 : {{ item[4] }}</p>
-        <p>분류 : {{ item[5] }}</p>
-        <p>재고수 : {{ item[6] }}</p>
-        <p>가격 : {{ item[7] }}</p>
-        {% endfor %}
-         <p><a href={{ url_for("views.home") }}>목록</a></p>
-      </div>
+      <div class="item_total">
+        <!-- Image -->
+        <div class="itemImage">
+          <img src="" alt="Image">
+        </div>
 
+        <!-- ItemAdd grid -->
+        <div class="itemInfos">
+          <div class="_f_items">
+            {% for item in data %}
+              <div class="item item_name">
+                <p>이름 : </p>
+                <span>{{ item[0] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>아이템 코드 : </p>
+                <span>{{ item[1] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>작성자 : </p>
+                <span>{{ item[2] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>작성일 : </p>
+                <span>{{ item[3] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>등록일 : </p>
+                <span>{{ item[4] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>분류 : </p>
+                <span>{{ item[5] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>재고수 : </p>
+                <span>{{ item[6] }}</span>
+              </div>
+
+              <div class="item item_name">
+                <p>가격 : </p>
+                <span>{{ item[7] }}</span>
+              </div>
+
+            {% endfor %}
+            <p class="gohome"><a href={{ url_for("views.home") }}>목록</a></p>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     
-    
-
+    {% include "footer.html" %}
     
   </body>
   <script src="../static/js/list.js">
