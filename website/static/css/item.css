@@ -123,13 +123,13 @@ body {
 .item_total {
     display: inline-flex;
     border: 1px solid #000;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* 상품 이미지 */
 
 .itemImage {
-    width: 400px;
+    width: 40%;
     height: 300px;
     border: 1px solid #000;
     margin: 4px;
@@ -139,12 +139,12 @@ body {
 
 }
 
+
 /* 상품 정보  */
 
 .itemInfos {
-    margin-top: 20px;
-    margin-right: 10px;
-    width: 400px;
+    margin: 10px 20px;
+    width: 25%;
     padding: 4px;
     right: 0;
     position: relative;
@@ -157,7 +157,7 @@ body {
 
 .item p {
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -173,6 +173,7 @@ body {
     display: block;
     float: right;
     font-size: 18px;
+    width: 60%;
 }
 
 
@@ -211,36 +212,9 @@ body {
     border: #000 1px solid;
     border-radius: 8px;
     text-decoration: 0;
-    padding: 2px 4px;
-}
-
-/* 마우스 오버시 버튼 */
-.img-container .button {
-    border: 0;
     padding: 4px 8px;
-    background-color: #000;
-    color: #fff;
-    opacity: 0;
-    transition: 0.3s;
-    height: 30px;
-    font-size: 20px;
-    position: absolute;
 }
 
-.display-interact:hover .button {
-    opacity: 1;
-    transition: 0.5s;
-}
-
-.display-interact:hover {
-    filter: grayscale(70%);
-    transition: 0.7s;
-}
-
-.img-container .button:hover {
-    background-color: #ffffff;
-    color: #000;
-}
 
 /* 기기별 화면 설정 */
 @media screen and (max-width: 900px) {
@@ -252,9 +226,17 @@ body {
         font-size: 18px;
     }
 
-    .img-container {
-        width: 48%;
-        font-size: 20px;
+    .item_total {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .itemInfos {
+        width: 90%;
+    }
+
+    .itemImage {
+        width: -webkit-fill-available;
     }
 }
 
@@ -263,8 +245,6 @@ body {
     margin-left: 20px;
     margin-top: 20px;
 }
-
-
 
 
 /* 바닥 */
