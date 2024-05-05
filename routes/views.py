@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 import my_db
 import sqlite3
-
+import log
 
 UPLOAD_FOLDER = os.getcwd() + '\\website\\static\\imgs'
 
@@ -22,6 +22,8 @@ def index():
 def home():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     info = my_db.select_all(table_name="items")
+    usr = session["usr_name"]
+    log.log(request, f"hello user {usr}")
     return render_template("home.html", data=info, current_time=now)
 
 # ----------------- 아이템 추가 ---------------------
