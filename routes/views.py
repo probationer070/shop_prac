@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template, redirect, url_for, session
 from website import Session
 from models.models import Items
+from datetime import datetime
 
 import os
 import my_db
@@ -12,14 +13,17 @@ UPLOAD_FOLDER = os.getcwd() + '\\website\\static\\imgs'
 views = Blueprint('views', __name__)
 
 
+
 @views.route('/')
 def index():
-    return render_template("index.html")
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return render_template("index.html", current_time=now)
 
 @views.route('/home')
 def home():
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     info = my_db.select_all(table_name="items")
-    return render_template("home.html", data=info)
+    return render_template("home.html", data=info, current_time=now)
 
 # ----------------- 아이템 추가 ---------------------
 

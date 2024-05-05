@@ -10,7 +10,7 @@ body {
 
 .container {
     height: 2000px;
-    width: 80vw;
+    width: 70vw;
     margin: auto;
     position: relative;
     display: flex;
@@ -28,9 +28,21 @@ body {
 }
 
 .top_item {
+    display: flex;
     height: 40px;
     margin-bottom: 5px;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer {
+    position: absolute;
+    left: 100px;
+}
+
+.timer p {
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .banner {

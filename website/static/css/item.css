@@ -28,9 +28,11 @@ body {
 }
 
 .top_item {
+    display: flex;
     height: 40px;
     margin-bottom: 5px;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .banner {
