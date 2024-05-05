@@ -70,11 +70,11 @@
                 <span class="event_items">New</span>
             </div>
             <div class="display-interact">
-                <img src={{ url_for('static', filename='imgs/book.jpg') }}> 
-                <button class="button item-url" id="item-url" value="/item/{{ item_id[1] }}">Buy now</button>
+                <img src="../static/imgs/{{ item_id[0] }}"> 
+                <button class="button item-url" id="item-url" value="/item/{{item_id[2]}}">Buy now</button>
             </div>
-            <div class="subject"><p>{{ item_id[0] }}</p></div> 
-            <div class="value"><p>${{ item_id[7] }}</p></div> 
+            <div class="subject"><p>{{ item_id[1] }}</p></div> 
+            <div class="value"><p>${{ item_id[8] }}</p></div> 
           </div>
         {% endfor %}
 

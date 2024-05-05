@@ -5,23 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FANSHOP signup</title>
     <link rel="stylesheet" href="../static/css/signup.css">
+    <script src="../static/js/validation.js" defer></script>
 </head>
 <body>
 
     <div class="Big_container">
         <div class="signup_container">
             <h1 class="">Sign UP</h1>
-            <form method="POST">
+            <form method="POST" name="Signup">
             <div class="labels">
                 <label>ID</label>
             </div>
-            <input type="text" name="usr_id" placeholder="jaehwan">
+            <input type="text" name="usr_id" id="usr_id" placeholder="jaehwan">
+            <div class="fail-msg hide">아이디는 4~12글자이어야 합니다</div>
+            <div class="fail-msg2 hide">영어 또는 숫자만 가능합니다</div>
+
             <div class="labels">
                 <label>PASSWORD</label>
             </div>
-            <input type="password" name="usr_pw">
-            <p><br></p>
-                <button class="link" type="submit">signup</button>
+            <input type="password" name="usr_pw" id="usr_pw">
+            
+            <div class="need-item1 hide">비번 8글자이상 이어야 합니다.</div>
+            <div class="need-item2 hide">영어,숫자,특수문자를 사용해야 합니다.</div>
+            <div class="need-item3 hide">반복되는 문자 3개 이상 있으면 안 됩니다.</div>
+            
+            <!--<div class="stregth1 hide">비밀번호 보안 정도 : 높음</div>
+            <div class="stregth2 hide">비밀번호 보안 정도 : 중간</div>
+            <div class="stregth3 hide">비밀번호 보안 정도 : 낮음</div>
+            <div class="stregth4 hide">비밀번호 보안 정도 : 매우 낮음</div>
+            -->
+            <br>
+            <br>
+            
+            
+            <input class="link signup_btn" id="link" type="button" value="signup" onclick="SignupVaildation()"></input>
             </form>
             <p style="text-align: center; position:relative; margin: 0;">or</p>
             <button class="link">continue with Google</button>

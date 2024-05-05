@@ -129,14 +129,17 @@ body {
 /* 상품 이미지 */
 
 .itemImage {
-    width: 40%;
-    height: 300px;
     border: 1px solid #000;
     margin: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40%;
+}
 
+.itemImage img {
+    object-fit: cover;
+    width: 100%;
 }
 
 
@@ -144,15 +147,17 @@ body {
 
 .itemInfos {
     margin: 10px 20px;
-    width: 25%;
-    padding: 4px;
-    right: 0;
-    position: relative;
+    width: 20%;
+    /* right: 0;
+    position: relative; */
+    display: flex;
+    justify-content: center;
+    font-size: larger;
 }
 
 .item {
     margin-top: 4px;
-    ;
+    width: 300px;
 }
 
 .item p {
@@ -180,8 +185,9 @@ body {
 /* 버튼 바 */
 .btn_nav {
     margin: 10px 10px 0 0;
-    position: absolute;
-    right: 0;
+    position: relative;
+    float: right;
+    left: 180px;
 }
 
 .btn_nav input {
@@ -201,8 +207,9 @@ body {
 /* 목록 버튼 */
 
 .gohome {
-    float: right;
-    margin: 10px 10px 0 0;
+    right: 0;
+    position: absolute;
+    margin: 20px 10px 0 0;
 }
 
 .gohome a {
@@ -217,7 +224,7 @@ body {
 
 
 /* 기기별 화면 설정 */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
     .sidenav_bar {
         padding-top: 15px;
     }
@@ -242,10 +249,17 @@ body {
 
 ._f_items {
     position: relative;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
+.item_img {
+    margin-bottom: 10px;
+    display: flow-root;
+}
+
+.item_img input {
+    font-size: 14px;
+}
 
 /* 바닥 */
 

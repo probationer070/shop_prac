@@ -12,63 +12,64 @@
     <div class="container">
       <!-- Header -->
       {% include "top_menu_user.html" %}
-
+      {% for item in data %}
       <div class="item_total">
         <!-- Image -->
         <div class="itemImage">
-          <img src="" alt="Image">
+          <img src="../static/imgs/{{ item[0] }}">
         </div>
-
+      
         <!-- ItemAdd grid -->
         <div class="itemInfos">
           <div class="_f_items">
-            {% for item in data %}
+            
               <div class="item item_name">
                 <p>이름 : </p>
-                <span>{{ item[0] }}</span>
-              </div>
-
-              <div class="item item_name">
-                <p>아이템 코드 : </p>
                 <span>{{ item[1] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>작성자 : </p>
+                <p>아이템 코드 : </p>
                 <span>{{ item[2] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>작성일 : </p>
+                <p>작성자 : </p>
                 <span>{{ item[3] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>등록일 : </p>
+                <p>작성일 : </p>
                 <span>{{ item[4] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>분류 : </p>
+                <p>등록일 : </p>
                 <span>{{ item[5] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>재고수 : </p>
+                <p>분류 : </p>
                 <span>{{ item[6] }}</span>
               </div>
 
               <div class="item item_name">
-                <p>가격 : </p>
+                <p>재고수 : </p>
                 <span>{{ item[7] }}</span>
               </div>
 
-            {% endfor %}
+              <div class="item item_name">
+                <p>가격 : </p>
+                <span>{{ item[8] }}</span>
+              </div>
+
+           
             <p class="gohome"><a href={{ url_for("views.home") }}>목록</a></p>
           </div>
         </div>
-
+      
       </div>
+      {% endfor %}
     </div>
 
     

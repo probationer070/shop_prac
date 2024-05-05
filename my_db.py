@@ -58,5 +58,5 @@ def select_user(user_id):
         db.close()
         return ret
 
-info = select_all(table_name="items")
-print(info)
+# info = select_all(table_name="items")
+# print(info)

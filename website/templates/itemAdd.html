@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta id="viewport" content="width=device-width, initial-scale=1.0">
   <title>FANSHOP</title>
   <link rel="stylesheet" href="../static/css/item.css"/>
-  <script src="../static/js/list.js" defer>
-  </script>
+  <script src="../static/js/list.js" defer></script>
+  <script src="../static/js/validation.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -16,52 +16,57 @@
   <div class="item_total">
       <!-- Image -->
       <div class="itemImage">
-        <img src="" alt="Image">
       </div>
       
       <!-- ItemAdd grid -->
       <div class="itemInfos">
         
-        <form method="post">
-          <div class="item item_name">
+        <form method="post" enctype="multipart/form-data">
+          
+          <div class="item item_img">
+            <p>이미지 업로드</p>
+            <input type="file" id="file">
+          </div>
+
+          <div class="item item_id">
             <p>이름 : </p>
-            <input type="text" name="item_name">
+            <input type="text" id="item_name">
           </div>
           
           <div class="item item_code">
             <p>코드 : </p>
-            <input type="text" name="item_code">
+            <input type="text" id="item_code">
           </div>
           <div class="item writer">
             <p>작성자 : </p>
-            <input type="text" name="writer">
+            <input type="text" id="writer">
           </div>
           
           <div class="item pubtime">
             <p>작성일 : </p>
-            <input type="text" name="pubtime">
+            <input type="text" id="pubtime">
           </div>
           <div class="item option">
             <p>분류 : </p>
-            <input type="text" name="option">
+            <input type="text" id="option">
           </div>
           
           <div class="item stock">
             <p>재고수 : </p>
-            <input type="text" name="stock">
+            <input type="text" id="stock">
           </div>
           <div class="item price">
             <p>가격 : </p>
-            <input type="text" name="price">
+            <input type="text" id="price">
           </div>
           
+          <div class="btn_nav">
+            <input type="submit" value="등록">
+            <input type="reset" value="리셋">
+          </div>
           
         </form>
         
-        <div class="btn_nav">
-          <input type="submit" value="등록">
-          <input type="reset" value="리셋">
-        </div>
 
     </div>
     

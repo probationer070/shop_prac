@@ -2,8 +2,12 @@ from flask import Blueprint, request, render_template, redirect, url_for, sessio
 from website import Session
 from models.models import Items
 
+import os
 import my_db
 import sqlite3
+
+
+UPLOAD_FOLDER = os.getcwd() + '\\website\\static\\imgs'
 
 views = Blueprint('views', __name__)
 
@@ -28,6 +32,11 @@ def item(item_code):
 @views.route('/itemAdd', methods=['GET', 'POST'])
 def itemAdd():
     if request.method == 'POST':
+        file = request.files['file']
+        filename = file.filename
+        file.save(os.path.join(UPLOAD_FOLDER, file.filename))
+        print(filename)
+        
         item_name = request.form['item_name']
         item_code = request.form['item_code']
         writer = request.form['writer']
@@ -37,7 +46,8 @@ def itemAdd():
         price = request.form['price']
         
         session = Session()
-        new_item = Items(item_name=item_name, 
+        new_item = Items(img_path=filename,
+                        item_name=item_name, 
                         item_code=item_code,
                         writer=writer,
                         pubtime=pubtime,

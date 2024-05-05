@@ -19,6 +19,8 @@ class User(Base):
 class Items(Base):
     __tablename__ = "items"
     
+    img_path = Column(String)
+    
     item_name = Column(String, unique=True)
     item_code = Column(String, unique=True, primary_key=True)
     writer = Column(String, nullable=False)

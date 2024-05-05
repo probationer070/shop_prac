@@ -1,5 +1,5 @@
 body {
-    background-color: #fff; 
+    background-color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -13,7 +13,7 @@ body {
     position: relative;
     border-radius: 16px;
     border-top: #fff;
-    
+
 }
 
 .Big_container {
@@ -31,7 +31,6 @@ input {
 }
 
 .link {
-    color: black;
     display: block;
     padding: 8px;
     margin: 10px;
@@ -42,6 +41,12 @@ input {
     right: 5px;
     width: 300px;
 }
+
+.signup_btn {
+    padding: 0px 4px;
+    height: 32px;
+}
+
 /* ADC4CE EEE0C9 */
 .link:hover {
     background-color: #ADC4CE;
@@ -60,4 +65,23 @@ input {
     text-decoration: none;
     color: black;
     font-weight: 900;
+}
+
+/* validation alert */
+
+.hide {
+    display: none;
+}
+
+.fail-msg,
+.fail-msg2 {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.need-item1,
+.need-item2,
+.need-item3 {
+    margin-top: 4px;
+    font-size: 12px;
 }

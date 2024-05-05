@@ -24,8 +24,8 @@ def login():
         
         if data:
             user_id, user_pw = data[0][0], data[0][1] 
-            print(user_id)
-            print(user_pw)
+            # print(user_id)
+            # print(user_pw)
 
             if user_id == id and user_pw == pw:
                 session['test'] = id
