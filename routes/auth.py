@@ -10,7 +10,7 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/logout')
 def logout():
-    session.pop('user', None)
+    session.pop('usr_name', None)
     return redirect(url_for('views.index'))
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -24,11 +24,10 @@ def login():
         
         if data:
             user_id, user_pw = data[0][0], data[0][1] 
-            # print(user_id)
-            # print(user_pw)
+
 
             if user_id == id and user_pw == pw:
-                session['test'] = id
+                session['usr_name'] = id
                 return redirect(url_for('views.home'))
             elif user_id == id and user_pw != pw:
                 error = "Check your PASSWORD"
@@ -50,15 +49,15 @@ def signup():
         user_pw = request.form.get('usr_pw')
 
         try:
-            with Session() as session:
-                existing_user = session.query(User).filter_by(user_id=user_id).first()
+            with Session() as sess:
+                existing_user = sess.query(User).filter_by(user_id=user_id).first()
                 if existing_user:
                     flash("이미 동일한 사용자가 존재합니다.", category="error")
                     return redirect(url_for('auth.signup'))
 
                 new_user = User(user_id=user_id, user_pw=user_pw)
-                session.add(new_user)
-                session.commit()
+                # session.add(new_user)
+                # session.commit()
                 flash("회원가입 완료.", category="success")
                 return redirect(url_for('views.index'))
 

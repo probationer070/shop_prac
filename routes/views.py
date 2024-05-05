@@ -13,7 +13,6 @@ UPLOAD_FOLDER = os.getcwd() + '\\website\\static\\imgs'
 views = Blueprint('views', __name__)
 
 
-
 @views.route('/')
 def index():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
