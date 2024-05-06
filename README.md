@@ -44,3 +44,16 @@ https://velog.io/@yohan-record/Python-Online-Store-%EB%A7%8C%EB%93%A4%EA%B8%B0-5
 https://m.blog.naver.com/funlucky1002/221609226235
 
 ...
+
+if you meet Error like this in Flask >
+
+werkzeug.exceptions.BadRequestKeyError: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+KeyError: 'item_name'
+
+Check your 'item_name' location 
+
+    print(request.from['item_name'])
+    print(request.from.get('item_name'))
+
+They are the same value fetching codes, but the latter returns None when the value does not exist.
+Check to see if the name of the area from which you retrieve the value is properly specified.
