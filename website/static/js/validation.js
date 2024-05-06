@@ -50,8 +50,7 @@ function SignupVaildation() {
     return;
   }
 
-
-  // document.Signup.submit();
+  document.Signup.submit();
 }
 
 function idLength(value) {

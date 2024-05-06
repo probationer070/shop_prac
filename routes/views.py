@@ -37,10 +37,10 @@ def item(item_code):
 @views.route('/itemAdd', methods=['GET', 'POST'])
 def itemAdd():
     if request.method == 'POST':
-        file = request.files['file']
-        filename = file.filename
-        file.save(os.path.join(UPLOAD_FOLDER, file.filename))
-        print(filename)
+        files = request.files['file']
+        file_name = files.filename
+        files.save(os.path.join(UPLOAD_FOLDER, file_name))
+        print(file_name)
         
         item_name = request.form['item_name']
         item_code = request.form['item_code']
@@ -50,8 +50,8 @@ def itemAdd():
         stock = request.form['stock']
         price = request.form['price']
         
-        session = Session()
-        new_item = Items(img_path=filename,
+        sess = Session()
+        new_item = Items(img_path=file_name,
                         item_name=item_name, 
                         item_code=item_code,
                         writer=writer,
@@ -59,8 +59,8 @@ def itemAdd():
                         option=option,
                         stock=stock,
                         price=price)
-        session.add(new_item)
-        session.commit()
+        sess.add(new_item)
+        sess.commit()
         return redirect(url_for('views.home'))
     
     return render_template("itemAdd.html")

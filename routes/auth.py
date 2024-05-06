@@ -56,8 +56,8 @@ def signup():
                     return redirect(url_for('auth.signup'))
 
                 new_user = User(user_id=user_id, user_pw=user_pw)
-                # session.add(new_user)
-                # session.commit()
+                sess.add(new_user)
+                sess.commit()
                 flash("회원가입 완료.", category="success")
                 return redirect(url_for('views.index'))
 
