@@ -18,8 +18,8 @@ def create_app():
     # db.init_app(app)
     
     # 블루프린트 인스턴스 가져오기
-    from routes.views import views
-    from routes.auth import auth
+    from controllers.views import views
+    from controllers.auth import auth
 
     # 플라스크 앱에 등록하기
     app.register_blueprint(views, url_prefix='/')

@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, redirect, url_for, abort,
 from models.models import User
 from website import Session
 
+from datetime import timedelta
 import sqlite3
 import my_db
 
@@ -18,7 +19,7 @@ def login():
     if request.method == 'POST':
         id = request.form['usr_id']
         pw = request.form['usr_pw']
-        
+
         data = my_db.select_user(id)
         error = None
         
@@ -28,6 +29,8 @@ def login():
 
             if user_id == id and user_pw == pw:
                 session['usr_name'] = id
+                session.permanent = True
+                auth.permanent_session_lifetime = timedelta(minutes=5)
                 return redirect(url_for('views.home'))
             elif user_id == id and user_pw != pw:
                 error = "Check your PASSWORD"

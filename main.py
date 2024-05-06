@@ -4,6 +4,7 @@ from website import create_app
 import sqlite3
 import my_db
 
+from controllers.error import error_handler
 
 
 app = create_app()
@@ -17,16 +18,12 @@ if not app.debug:
     
     app.logger.addHandler(file_handler)
 
-@app.errorhandler(404)
-def page_not_found(e):
-    import datetime as date
-    day = date.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    app.logger.error('page_not_found;user:{0};where:{1};'.format(session['usr_name'], day))
-    return render_template('404.html'), 404
+# @app.errorhandler(KeyError)
+# def error_handling_500(error):
+#     return jsonify({'Error': "Some Error.."}, 500)
+# 에러 핸들러
 
-@app.errorhandler(500)
-def error_handling_500(error):
-    return jsonify({'Error': "Some Error.."}, 500)
+error_handler(app)
 
 if __name__ == '__main__':
     app.run(debug=True)

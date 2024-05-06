@@ -23,6 +23,8 @@ def home():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     info = my_db.select_all(table_name="items")
     usr = session["usr_name"]
+    if usr == None:
+        return redirect(url_for('views.index')) 
     log.log(request, f"hello user {usr}")
     return render_template("home.html", data=info, current_time=now)
 
