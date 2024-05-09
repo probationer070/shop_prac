@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 import my_db
 import sqlite3
-import log
+# import log
 
 UPLOAD_FOLDER = os.getcwd() + '\\website\\static\\imgs'
 
@@ -25,7 +25,7 @@ def home():
     usr = session["usr_name"]
     if usr == None:
         return redirect(url_for('views.index')) 
-    log.log(request, f"hello user {usr}")
+    # log.log(request, f"hello user {usr}")
     return render_template("home.html", data=info, current_time=now)
 
 # ----------------- 아이템 추가 ---------------------

@@ -18,9 +18,6 @@ if not app.debug:
     
     app.logger.addHandler(file_handler)
 
-# @app.errorhandler(KeyError)
-# def error_handling_500(error):
-#     return jsonify({'Error': "Some Error.."}, 500)
 # 에러 핸들러
 
 error_handler(app)
