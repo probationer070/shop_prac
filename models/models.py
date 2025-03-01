@@ -1,8 +1,6 @@
 
 from sqlalchemy import Column, Integer, String, Text, Date
-from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
-from sqlalchemy.ext.declarative import declarative_base
 
 from website import Base
 
